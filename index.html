@@ -1831,10 +1831,49 @@
 
     // ===== Tela 2: idade =====
     function submitAge() {
-      const v = document.getElementById('age-input').value;
-      if (!v || +v < 1) { document.getElementById('age-input').focus(); return; }
+      const v = parseInt(document.getElementById('age-input').value);
+
+      if (!v || v < 1) {
+        document.getElementById('age-input').focus();
+        return;
+      }
+
+      const idadeAtual = v;
+      const idadeFinal = 60;
+
+      const anos = idadeFinal - idadeAtual;
+
+      if (anos <= 0) {
+        alert('A idade deve ser menor que 60 anos.');
+        return;
+      }
+
+      const meses = anos * 12;
+
+      const aporteMensal = 100;
+
+      const taxaAnual = 0.07;
+      const taxaAdm = 0.003;
+
+      // taxa líquida anual
+      const taxaLiquida = taxaAnual - taxaAdm;
+
+      // taxa mensal (juros compostos)
+      const taxaMensal = Math.pow(1 + taxaLiquida, 1 / 12) - 1;
+
+      // fórmula do valor futuro (juros compostos com aportes)
+      const valorFinal = aporteMensal * ((Math.pow(1 + taxaMensal, meses) - 1) / taxaMensal);
+
+      console.log('Meses:', meses);
+      console.log('Taxa mensal:', taxaMensal);
+      console.log('Valor acumulado:', valorFinal.toFixed(2));
+
+      // se quiser mostrar na tela:
+      alert(`Você terá aproximadamente R$ ${valorFinal.toFixed(2)}`);
+
       goTo(3);
     }
+
     window.submitAge = submitAge;
 
     // ===== Tela 3: seleção de ticket =====
