@@ -1269,7 +1269,11 @@
               class="my-5 inline-block w-24 h-px bg-gradient-to-r from-transparent via-[#ff5366] to-transparent md:mr-auto md:block">
             </div>
             <p class="font-display text-[#9eaec7] text-[20px] md:text-[24px] leading-[1.15] tracking-[0.05em]">
-              QUEM DECIDE<br>HOJE CHEGA LÁ<br>COM MAIS<br>SEGURANÇA.
+              POUPANDO R$ <span data-valor></span>/MÊS<br>
+              POR <span data-tempo></span> ANOS<br>
+              VOCÊ CHEGA AOS <span data-idade></span><br>
+              COM MAIS SEGURANÇA.
+
             </p>
           </div>
         </div>
@@ -1449,7 +1453,10 @@
               <div class="absolute h-full w-full top-0 left-0 flex items-center justify-center flex-col">
                 <div
                   class="relative font-display text-[#fff] text-[22px] lg:text-[28px] leading-[1.1] tracking-[0.08em] mt-2 text-left">
-                  VOCÊ TERÁ<br /><span class="font-semibold">R$ X</span> PARA<br />REALIZAR<br />SEU DESEJO
+                  VOCÊ TERÁ<br />
+                  <span class="font-semibold">R$ {total}</span> AOS {idade}<br />
+                  PARA REALIZAR<br />
+                  SEU DESEJO
                 </div>
                 <div class="relative mt-4">
                   <button class="bt" onclick="goTo(6)">
@@ -1716,7 +1723,7 @@
         </section>
 
         <!-- FORM -->
-        <section class="reveal d4 mt-20 mb-10 px-6">
+        <section class="reveal d4 mt-20 mb-10 px-6 hidden">
           <div class="max-w-3xl mx-auto text-center">
             <div class="mx-auto w-20 h-px bg-gradient-to-r from-transparent via-[#ff5366] to-transparent"></div>
             <h3 class="mt-6 font-display text-[28px] md:text-[36px] leading-tight">
@@ -1830,11 +1837,19 @@
     });
 
     // ===== Tela 2: idade =====
+    function formatCurrency(value) {
+      return value.toLocaleString('pt-BR', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      });
+    }
+
     function submitAge() {
-      const v = parseInt(document.getElementById('age-input').value);
+      const input = document.getElementById('age-input');
+      const v = parseInt(input.value);
 
       if (!v || v < 1) {
-        document.getElementById('age-input').focus();
+        input.focus();
         return;
       }
 
@@ -1842,34 +1857,35 @@
       const idadeFinal = 60;
 
       const anos = idadeFinal - idadeAtual;
-
-      if (anos <= 0) {
-        alert('A idade deve ser menor que 60 anos.');
-        return;
-      }
+      if (anos <= 0) return;
 
       const meses = anos * 12;
 
       const aporteMensal = 100;
-
       const taxaAnual = 0.07;
       const taxaAdm = 0.003;
 
-      // taxa líquida anual
       const taxaLiquida = taxaAnual - taxaAdm;
-
-      // taxa mensal (juros compostos)
       const taxaMensal = Math.pow(1 + taxaLiquida, 1 / 12) - 1;
 
-      // fórmula do valor futuro (juros compostos com aportes)
       const valorFinal = aporteMensal * ((Math.pow(1 + taxaMensal, meses) - 1) / taxaMensal);
 
-      console.log('Meses:', meses);
-      console.log('Taxa mensal:', taxaMensal);
-      console.log('Valor acumulado:', valorFinal.toFixed(2));
+      // Atualiza valores no HTML
+      document.querySelectorAll('[data-valor]').forEach(el => {
+        el.textContent = formatCurrency(aporteMensal);
+      });
 
-      // se quiser mostrar na tela:
-      alert(`Você terá aproximadamente R$ ${valorFinal.toFixed(2)}`);
+      document.querySelectorAll('[data-tempo]').forEach(el => {
+        el.textContent = anos;
+      });
+
+      document.querySelectorAll('[data-idade]').forEach(el => {
+        el.textContent = idadeFinal;
+      });
+
+      document.querySelectorAll('[data-total]').forEach(el => {
+        el.textContent = formatCurrency(valorFinal);
+      });
 
       goTo(3);
     }
