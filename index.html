@@ -543,19 +543,6 @@
       overflow: hidden;
     }
 
-    .hero-photo::after {
-      content: "";
-      position: absolute;
-      right: 6%;
-      bottom: 0;
-      width: 46%;
-      height: 100%;
-      background:
-        radial-gradient(ellipse at 50% 32%, #d6b594 0 7%, rgba(214, 181, 148, 0) 9%),
-        radial-gradient(ellipse at 50% 60%, #1c365e 0 22%, rgba(28, 54, 94, 0) 25%);
-      opacity: .85;
-    }
-
     /* card translúcido */
     .glass-card {
       border: 1px solid rgba(173, 200, 240, .18);
@@ -1600,7 +1587,7 @@
         <!-- HERO BANNER -->
         <section class="reveal d2 mt-8 mx-4 md:mx-12">
           <div
-            class="hero-photo relative rounded-md border border-white/10 overflow-hidden p-8 md:p-12 min-h-[340px] flex lg:px-20 lg:min-h-[540px]">
+            class="hero-photo bg-[url(img/oabbanner.jpg)] relative rounded-md border border-white/10 overflow-hidden p-8 md:p-12 min-h-[340px] flex lg:px-20 lg:min-h-[540px]">
             <div class="grid md:grid-cols-3 gap-8 relative z-10 items-center">
               <div class="md:col-span-1  lg:pr-10">
                 <h2
