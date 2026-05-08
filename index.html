@@ -347,7 +347,7 @@
       height: 3px;
       border-radius: 999px;
       background: #7a78ff;
-      display: inline-block;
+      display: none;
     }
 
     /* ---------- LOGO 21 ANOS ---------- */
@@ -414,6 +414,12 @@
       to {
         opacity: 1;
         transform: none;
+      }
+    }
+
+    @media(min-width: 1024px) {
+      .dot {
+        display: inline-block;
       }
     }
 
@@ -1113,7 +1119,7 @@
         <div data-logo class="mx-auto"></div>
       </header>
 
-      <main class="flex-1 flex flex-col items-center justify-center px-6 text-center">
+      <main class="lg:pt-0 pt-20 flex-1 flex flex-col items-center justify-center px-6 text-center">
         <div class="reveal d2 mb-10">
           <div class="inline-block">
             <div class="px-10 md:px-16 py-8 md:py-10">
@@ -1144,39 +1150,40 @@
                 </svg>
               </div>
               <div class="flex flex-col items-start gap-3 md:gap-5 leading-none">
-                <span class="font-display text-white text-[44px] md:text-[64px]">VOCÊ TEM</span>
+                <span class="font-display text-white text-[34px] md:text-[64px]">VOCÊ TEM</span>
                 <div class="flex items-center gap-3">
-                  <svg width="152" height="77" viewBox="0 0 152 77" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="38.0422" cy="38.0422" r="37.6347" stroke="#FF4646" stroke-width="0.815013" />
-                    <circle cx="74.3552" cy="38.0422" r="37.6347" stroke="#FF4646" stroke-width="0.815013" />
+                  <svg viewBox="0 0 152 77" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    class="w-[100px] lg:w-[152px]">
+                    <circle cx="38.0422" cy="38.0422" r="37.6347" stroke="#FF4646" stroke-width="0.815013"></circle>
+                    <circle cx="74.3552" cy="38.0422" r="37.6347" stroke="#FF4646" stroke-width="0.815013"></circle>
                     <mask id="mask0_110_102" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="36" y="0" width="77"
                       height="77">
                       <circle cx="74.3552" cy="38.0422" r="37.6347" fill="#D9D9D9" stroke="#FF4646"
-                        stroke-width="0.815013" />
+                        stroke-width="0.815013"></circle>
                     </mask>
                     <g mask="url(#mask0_110_102)">
                       <path d="M66.2857 -0.576355C56.2815 12.0441 42.2757 45.1602 66.2857 76.6609" stroke="#FF4646"
-                        stroke-width="1.63003" />
+                        stroke-width="1.63003"></path>
                       <path d="M83.5776 -0.576355C93.5818 12.0441 107.588 45.1602 83.5776 76.6609" stroke="#FF4646"
-                        stroke-width="1.63003" />
+                        stroke-width="1.63003"></path>
                       <path d="M57.0633 2.88202C46.1892 14.1455 30.9655 43.9784 57.0633 73.2025" stroke="#FF4646"
-                        stroke-width="1.63003" />
+                        stroke-width="1.63003"></path>
                       <path d="M92.8 2.88202C103.674 14.1455 118.898 43.9784 92.8 73.2025" stroke="#FF4646"
-                        stroke-width="1.63003" />
-                      <path d="M74.9316 -1.72913V77.2373" stroke="#FF4646" stroke-width="1.63003" />
+                        stroke-width="1.63003"></path>
+                      <path d="M74.9316 -1.72913V77.2373" stroke="#FF4646" stroke-width="1.63003"></path>
                       <path d="M70.8969 -1.72913C67.4172 10.6172 62.5456 43.8107 70.8969 77.8137" stroke="#FF4646"
-                        stroke-width="1.63003" />
+                        stroke-width="1.63003"></path>
                       <path d="M78.9664 -1.72913C82.4461 10.6172 87.3177 43.8107 78.9664 77.8137" stroke="#FF4646"
-                        stroke-width="1.63003" />
+                        stroke-width="1.63003"></path>
                     </g>
-                    <circle cx="113.55" cy="38.0422" r="37.6347" stroke="#FF4646" stroke-width="0.815013" />
-                    <circle cx="113.262" cy="38.3304" r="29.277" stroke="#FF4646" stroke-width="0.815013" />
+                    <circle cx="113.55" cy="38.0422" r="37.6347" stroke="#FF4646" stroke-width="0.815013"></circle>
+                    <circle cx="113.262" cy="38.3304" r="29.277" stroke="#FF4646" stroke-width="0.815013"></circle>
                     <path
                       d="M113.55 20.0048C123.506 20.0048 131.587 28.2041 131.587 38.3309C131.587 48.4575 123.505 56.6561 113.55 56.6561C103.594 56.6559 95.513 48.4574 95.5128 38.3309C95.5128 28.2042 103.594 20.005 113.55 20.0048Z"
-                      stroke="#FF4646" stroke-width="0.815013" />
-                    <circle cx="113.838" cy="38.3305" r="6.79746" stroke="#FF4646" stroke-width="0.815013" />
+                      stroke="#FF4646" stroke-width="0.815013"></path>
+                    <circle cx="113.838" cy="38.3305" r="6.79746" stroke="#FF4646" stroke-width="0.815013"></circle>
                   </svg>
-                  <span class="font-display text-white text-[44px] md:text-[64px] aboreto-font">UM DESEJO?</span>
+                  <span class="font-display text-white text-[34px] md:text-[64px] aboreto-font">UM DESEJO?</span>
                 </div>
 
               </div>
