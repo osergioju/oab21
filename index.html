@@ -187,9 +187,12 @@
       position: relative;
       width: 170px;
       border-radius: 6px 6px 0 0;
-      overflow: hidden;
       cursor: pointer;
       transition: transform .5s cubic-bezier(.2, .8, .2, 1), box-shadow .5s ease, filter .5s ease;
+    }
+
+    .ticket-card.selected img {
+      filter: drop-shadow(0px 4px 15px #5c72ff);
     }
 
     .ticket-card .frame {
