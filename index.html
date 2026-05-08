@@ -690,6 +690,226 @@
       background: linear-gradient(90deg, #ff5366, #7a78ff);
       color: #fff;
     }
+
+    /* ===== RESPONSIVE FIXES ===== */
+
+    /* Headlines fluidas */
+    .headline-1 { font-size: clamp(32px, 8vw, 88px) !important; }
+    .headline-2 { font-size: clamp(26px, 6.5vw, 64px) !important; }
+
+    /* Age input – mobile */
+    @media (max-width: 520px) {
+      .age-line {
+        font-size: clamp(36px, 12vw, 64px);
+        width: min(320px, 92%);
+      }
+      .age-line::placeholder {
+        font-size: clamp(24px, 8vw, 42px);
+      }
+    }
+
+    /* Ticket buttons – prevent overflow */
+    .ticket-btn svg, .ticket-btn > button > svg {
+      max-width: 100%;
+      height: auto;
+    }
+    @media (max-width: 320px) {
+      .ticket-btn svg, .ticket-btn > button > svg { width: 240px !important; }
+    }
+
+    /* Ticket card images */
+    .ticket-card img { max-width: 100%; height: 100%; object-fit: contain; }
+
+    /* Screen-5 grid mobile */
+    @media (max-width: 768px) {
+      #screen-5 main.grid {
+        grid-template-columns: 1fr !important;
+        align-items: start;
+        padding-top: 0.5rem;
+        row-gap: 1.5rem !important;
+      }
+      #screen-5 .dispenser-outer { max-width: 320px; margin: 0 auto; }
+      .gold-ticket { width: min(220px, 70vw) !important; height: auto !important; }
+    }
+
+    /* Dispenser SVG responsive */
+    .dispenser-svg-wrap { width: 100%; max-width: 400px; margin: 0 auto; }
+    .dispenser-svg-wrap svg { width: 100%; height: auto; }
+
+    /* Logo header – evitar overflow */
+    [data-logo] svg { max-width: 200px; height: auto; }
+    @media (max-width: 480px) {
+      [data-logo] svg { max-width: 160px; }
+    }
+
+    /* Footer responsive */
+    @media (max-width: 640px) {
+      footer .flex.items-center { flex-direction: column; align-items: flex-start; }
+      .tickets-row { gap: 10px !important; }
+      .ticket-card { width: 110px !important; height: 195px !important; }
+    }
+
+    /* Headline tela 2 – mobile */
+    @media (max-width: 640px) {
+      #screen-2 h1 { font-size: clamp(30px, 9vw, 56px) !important; margin-bottom: 2rem !important; }
+      #screen-3 h2 { font-size: clamp(28px, 9vw, 40px) !important; }
+    }
+
+    /* ===== COMPARISON WIDGET ===== */
+
+    .sim-toggle-btn {
+      font-size: 10px;
+      letter-spacing: .16em;
+      font-weight: 700;
+      color: var(--violet);
+      border: 1px solid rgba(122, 120, 255, .4);
+      padding: 7px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all .2s ease;
+      background: rgba(122, 120, 255, .06);
+      white-space: nowrap;
+    }
+    .sim-toggle-btn:hover, .sim-toggle-btn.active {
+      background: rgba(122, 120, 255, .18);
+      border-color: rgba(122, 120, 255, .7);
+    }
+
+    .compare-panel { display: none; margin-top: 14px; }
+    .compare-panel.visible { display: block; }
+
+    .compare-amount-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+    .compare-amt-btn {
+      font-size: 11px;
+      letter-spacing: .1em;
+      font-weight: 700;
+      padding: 5px 13px;
+      border-radius: 999px;
+      border: 1px solid rgba(173, 200, 240, .22);
+      color: var(--ink-soft);
+      cursor: pointer;
+      transition: all .2s ease;
+      background: transparent;
+    }
+    .compare-amt-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .compare-amt-btn.selected {
+      background: rgba(242, 198, 106, .12);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    .compare-custom-wrap {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .compare-custom-pre {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--ink-mute);
+      letter-spacing: .05em;
+    }
+    .compare-custom-input {
+      background: transparent;
+      border: 1px solid rgba(173, 200, 240, .22);
+      border-radius: 999px;
+      color: #fff;
+      font-size: 11px;
+      font-family: "Manrope", sans-serif;
+      font-weight: 700;
+      letter-spacing: .08em;
+      padding: 5px 12px;
+      width: 80px;
+      outline: none;
+      transition: border-color .2s ease;
+    }
+    .compare-custom-input:focus { border-color: rgba(173, 200, 240, .55); }
+    .compare-custom-input::placeholder { color: rgba(173, 200, 240, .38); }
+
+    .compare-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .compare-card {
+      border: 1px solid rgba(173, 200, 240, .14);
+      border-radius: 8px;
+      padding: 11px 12px;
+      background: linear-gradient(180deg, rgba(11, 28, 51, .5), rgba(6, 16, 30, .38));
+    }
+    .compare-card.primary { border-color: rgba(122, 120, 255, .22); }
+    .compare-card.secondary {
+      border-color: rgba(242, 198, 106, .28);
+      background: linear-gradient(180deg, rgba(242, 198, 106, .06), rgba(6, 16, 30, .38));
+    }
+    .compare-card-label {
+      font-size: 9px;
+      letter-spacing: .2em;
+      font-weight: 700;
+      color: var(--ink-mute);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+    .compare-card.secondary .compare-card-label { color: var(--gold-2); }
+    .compare-card-value {
+      font-size: clamp(14px, 2vw, 18px);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.1;
+    }
+    .compare-card.secondary .compare-card-value { color: var(--gold); }
+    .compare-card-detail {
+      font-size: 9px;
+      color: var(--ink-mute);
+      margin-top: 5px;
+      line-height: 1.55;
+    }
+
+    .compare-diff-box {
+      margin-top: 9px;
+      padding: 10px 13px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(122, 120, 255, .08), rgba(242, 198, 106, .07));
+      border: 1px solid rgba(242, 198, 106, .2);
+    }
+    .compare-diff-phrase {
+      font-size: 11px;
+      line-height: 1.55;
+      color: var(--ink-soft);
+      margin-top: 6px;
+    }
+    .compare-diff-phrase strong { color: var(--gold); }
+
+    @keyframes pulse-gold {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(242,198,106,.5); }
+      60% { box-shadow: 0 0 0 7px rgba(242,198,106,0); }
+    }
+    .badge-mais {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: rgba(242, 198, 106, .14);
+      border: 1px solid rgba(242, 198, 106, .45);
+      color: var(--gold);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      animation: pulse-gold 2.2s ease-in-out infinite;
+    }
+
+    /* Screen-5 left/right columns on mobile */
+    @media (max-width: 768px) {
+      #screen-5 .reveal.d2 { text-align: center; align-items: center !important; }
+      #screen-5 .reveal.d2 .text-left { text-align: center; }
+      #screen-5 .reveal.d4 { text-align: center; }
+      .compare-panel { text-align: left; }
+      .compare-amount-btns { justify-content: center; }
+      .sim-toggle-btn-wrap { display: flex; justify-content: center; }
+    }
   </style>
 </head>
 
@@ -1244,7 +1464,7 @@
         <div class="reveal d1" data-logo></div>
       </header>
 
-      <main class="flex-1 grid md:grid-cols-3 items-center px-6 md:px-16 gap-8">
+      <main class="flex-1 grid md:grid-cols-3 items-center px-6 md:px-16 gap-8 gap-y-4 md:gap-y-8">
         <!-- Coluna esquerda -->
         <div class="reveal d2 flex items-end flex-col" style="">
           <div class="text-left">
@@ -1269,7 +1489,8 @@
         <div class="reveal d3 flex flex-col items-center justify-center relative">
           <span class="absolute top-[-30px] left-1/2 -translate-x-1/2 w-2 h-2 rounded-full blink-red"></span>
 
-          <svg width="400" viewBox="0 0 558 282" fill="none" xmlns="http://www.w3.org/2000/svg"
+          <div class="dispenser-svg-wrap">
+          <svg viewBox="0 0 558 282" fill="none" xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink">
             <path
               d="M117.547 229.261L1.36753 83.2916C0.694675 82.4462 0.81827 81.2455 1.70578 80.6293C86.7431 21.5865 320.749 -64.441 555.328 80.6238C556.274 81.2088 556.526 82.498 555.846 83.3783L449.294 221.304C448.938 221.765 448.389 222.035 447.806 222.035H442.708"
@@ -1434,6 +1655,8 @@
             </defs>
           </svg>
 
+          </div><!-- /dispenser-svg-wrap -->
+
           <!-- ticket dourado saindo -->
           <div class="gold-ticket dispense -mt-2 flex flex-col items-center justify-between text-center">
             <div class="relative">
@@ -1556,13 +1779,61 @@
           </div>
         </div>
 
-        <!-- Coluna direita -->
+        <!-- Coluna direita – Comparação de aportes -->
         <div class="reveal d4">
-          <p
-            class="font-display text-[#9eaec7] text-[20px] md:text-[24px] lg:text-[34px] leading-[1.15] tracking-[0.05em]">
-            A OABPREV-SC CUIDA DO<br />CAMINHO ENQUANTO<br />VOCÊ <span class="text-white font-medium">VIVE O
-              PRESENTE.</span>
+          <p class="font-display text-[#9eaec7] text-[14px] md:text-[16px] lg:text-[18px] leading-[1.3] tracking-[0.04em] mb-4">
+            A OABPREV-SC CUIDA DO CAMINHO ENQUANTO VOCÊ
+            <span class="text-white font-medium"> VIVE O PRESENTE.</span>
           </p>
+
+          <div class="sim-toggle-btn-wrap mb-1">
+            <button id="btn-toggle-compare" class="sim-toggle-btn" onclick="toggleCompare()">
+              ↗ SIMULAR APORTE MAIOR
+            </button>
+          </div>
+
+          <!-- Painel de comparação -->
+          <div id="compare-panel" class="compare-panel">
+            <p class="text-[9px] tracking-[.18em] text-[var(--ink-mute)] mb-2 uppercase">Comparar com aporte de:</p>
+
+            <div class="compare-amount-btns">
+              <button class="compare-amt-btn selected" data-amt="200" onclick="selectCompareAmt(this, 200)">R$200</button>
+              <button class="compare-amt-btn" data-amt="300" onclick="selectCompareAmt(this, 300)">R$300</button>
+              <button class="compare-amt-btn" data-amt="500" onclick="selectCompareAmt(this, 500)">R$500</button>
+              <div class="compare-custom-wrap">
+                <span class="compare-custom-pre">R$</span>
+                <input id="compare-custom" class="compare-custom-input" type="number"
+                  placeholder="outro" min="101" max="99999"
+                  oninput="onCustomAmt(this)" />
+              </div>
+            </div>
+
+            <div class="compare-cards">
+              <div class="compare-card primary">
+                <div class="compare-card-label">Baseline · R$100/mês</div>
+                <div class="compare-card-value" id="cmp-total-a">—</div>
+                <div class="compare-card-detail">
+                  Aportado: R$<span id="cmp-invest-a">—</span><br>
+                  + Rendimento: R$<span id="cmp-yield-a">—</span>
+                </div>
+              </div>
+              <div class="compare-card secondary">
+                <div class="compare-card-label" id="cmp-label-b">R$200/mês</div>
+                <div class="compare-card-value" id="cmp-total-b">—</div>
+                <div class="compare-card-detail">
+                  Aportado: R$<span id="cmp-invest-b">—</span><br>
+                  + Rendimento: R$<span id="cmp-yield-b">—</span>
+                </div>
+              </div>
+            </div>
+
+            <div id="compare-diff-box" class="compare-diff-box" style="display:none">
+              <span class="badge-mais" id="cmp-badge">+R$?</span>
+              <p class="compare-diff-phrase" id="cmp-phrase">
+                Calculando...
+              </p>
+            </div>
+          </div>
         </div>
       </main>
 
@@ -1848,36 +2119,146 @@
 
       const meses = anos * 12;
 
-      const aporteMensal = 100;
+      const APORTE_BASE = 100;
       const taxaAnual = 0.07;
       const taxaAdm = 0.003;
-
       const taxaLiquida = taxaAnual - taxaAdm;
       const taxaMensal = Math.pow(1 + taxaLiquida, 1 / 12) - 1;
 
-      const valorFinal = aporteMensal * ((Math.pow(1 + taxaMensal, meses) - 1) / taxaMensal);
+      const valorFinal = APORTE_BASE * ((Math.pow(1 + taxaMensal, meses) - 1) / taxaMensal);
+
+      // Guarda parâmetros globais para comparação
+      window._simAnos = anos;
+      window._simMeses = meses;
+      window._simIdadeFinal = 65;
+      window._simTaxaMensal = taxaMensal;
 
       // Atualiza valores no HTML
       document.querySelectorAll('[data-valor]').forEach(el => {
-        el.textContent = formatCurrency(aporteMensal);
+        el.textContent = formatCurrency(APORTE_BASE);
       });
-
       document.querySelectorAll('[data-tempo]').forEach(el => {
         el.textContent = anos;
       });
-
       document.querySelectorAll('[data-idade]').forEach(el => {
         el.textContent = idadeFinal;
       });
-
       document.querySelectorAll('[data-total]').forEach(el => {
         el.textContent = formatCurrency(valorFinal);
       });
+
+      // Pré-calcula comparação com R$200 (padrão)
+      updateCompareCards(200);
+
+      // Reseta painel de comparação ao entrar na tela
+      const panel = document.getElementById('compare-panel');
+      if (panel) panel.classList.remove('visible');
+      const toggleBtn = document.getElementById('btn-toggle-compare');
+      if (toggleBtn) toggleBtn.classList.remove('active');
 
       goTo(3);
     }
 
     window.submitAge = submitAge;
+
+    // ===== Simulador – funções de comparação =====
+    function calcSim(aporte, meses, taxaMensal) {
+      const total = aporte * ((Math.pow(1 + taxaMensal, meses) - 1) / taxaMensal);
+      const investido = aporte * meses;
+      const rendimento = total - investido;
+      return { total, investido, rendimento };
+    }
+
+    function updateCompareCards(aporteB) {
+      const meses = window._simMeses;
+      const taxa = window._simTaxaMensal;
+      if (!meses || !taxa) return;
+
+      const simA = calcSim(100, meses, taxa);
+      const simB = calcSim(aporteB, meses, taxa);
+
+      const fmt = v => formatCurrency(v);
+      const fmtK = v => {
+        if (v >= 1000000) return (v / 1000000).toLocaleString('pt-BR', { maximumFractionDigits: 2 }) + 'M';
+        if (v >= 1000) return (v / 1000).toLocaleString('pt-BR', { maximumFractionDigits: 1 }) + 'k';
+        return fmt(v);
+      };
+
+      // Coluna A (baseline R$100)
+      const elTotalA = document.getElementById('cmp-total-a');
+      const elInvestA = document.getElementById('cmp-invest-a');
+      const elYieldA = document.getElementById('cmp-yield-a');
+      if (elTotalA) elTotalA.textContent = 'R$ ' + fmtK(simA.total);
+      if (elInvestA) elInvestA.textContent = fmtK(simA.investido);
+      if (elYieldA) elYieldA.textContent = fmtK(simA.rendimento);
+
+      // Coluna B (aporte escolhido)
+      const elLabelB = document.getElementById('cmp-label-b');
+      const elTotalB = document.getElementById('cmp-total-b');
+      const elInvestB = document.getElementById('cmp-invest-b');
+      const elYieldB = document.getElementById('cmp-yield-b');
+      if (elLabelB) elLabelB.textContent = 'R$' + aporteB + '/mês';
+      if (elTotalB) elTotalB.textContent = 'R$ ' + fmtK(simB.total);
+      if (elInvestB) elInvestB.textContent = fmtK(simB.investido);
+      if (elYieldB) elYieldB.textContent = fmtK(simB.rendimento);
+
+      // Caixa de diferença
+      const diff = simB.total - simA.total;
+      const extraAporte = aporteB - 100;
+      const multRendimento = simB.rendimento > 0 ? (simB.rendimento / (simA.rendimento || 1)).toFixed(1) : '?';
+      const badge = document.getElementById('cmp-badge');
+      const phrase = document.getElementById('cmp-phrase');
+      const diffBox = document.getElementById('compare-diff-box');
+
+      if (badge) badge.textContent = '+R$ ' + fmtK(diff);
+      if (phrase) {
+        const extraInvested = extraAporte * (window._simMeses || 0);
+        phrase.innerHTML = `Com <strong>+R$${extraAporte}/mês</strong> a mais você investe <strong>+R$ ${fmtK(extraInvested)}</strong> e recebe <strong>+R$ ${fmtK(diff)}</strong> extra aos ${window._simIdadeFinal || 65} anos. O juro composto transforma cada real a mais em muito mais — porque o rendimento também rende.`;
+      }
+      if (diffBox) diffBox.style.display = 'block';
+    }
+    window.updateCompareCards = updateCompareCards;
+
+    function toggleCompare() {
+      const panel = document.getElementById('compare-panel');
+      const btn = document.getElementById('btn-toggle-compare');
+      if (!panel) return;
+      const isVisible = panel.classList.toggle('visible');
+      if (btn) {
+        btn.classList.toggle('active', isVisible);
+        btn.textContent = isVisible ? '✕ FECHAR COMPARAÇÃO' : '↗ SIMULAR APORTE MAIOR';
+      }
+      if (isVisible) updateCompareCards(getCurrentCompareAmt());
+    }
+    window.toggleCompare = toggleCompare;
+
+    function getCurrentCompareAmt() {
+      const selected = document.querySelector('.compare-amt-btn.selected');
+      if (selected) return parseInt(selected.dataset.amt);
+      const custom = document.getElementById('compare-custom');
+      if (custom && custom.value) return Math.max(101, parseInt(custom.value) || 200);
+      return 200;
+    }
+
+    function selectCompareAmt(btn, amt) {
+      document.querySelectorAll('.compare-amt-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      const customInput = document.getElementById('compare-custom');
+      if (customInput) customInput.value = '';
+      updateCompareCards(amt);
+    }
+    window.selectCompareAmt = selectCompareAmt;
+
+    let _customTimer = null;
+    function onCustomAmt(input) {
+      clearTimeout(_customTimer);
+      document.querySelectorAll('.compare-amt-btn').forEach(b => b.classList.remove('selected'));
+      _customTimer = setTimeout(() => {
+        const v = parseInt(input.value);
+        if (v && v > 100) updateCompareCards(v);
+      }, 500);
+    }
+    window.onCustomAmt = onCustomAmt;
 
     // ===== Tela 3: seleção de ticket =====
     function selectTicket(card) {
